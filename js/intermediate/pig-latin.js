@@ -1,15 +1,9 @@
 // write a function that translates english to pig-latin
 
 function pigLatin(str) {
-	var str = str.split(' ');
-	for (var i = 0; i < str.length; i++) {
-		var word = str[i].split('');
-		var firstLetter = word.shift();
-		word.push(firstLetter);
-		word = word.join('') + 'ay';
-		str[i] = word;
-	}
-	return str.join(' ');
+	return str.split(' ').map(function (value) {
+		return value.slice(1) + value.charAt(0) + 'ay';
+	}).join(' ');
 }
 
 console.log(pigLatin('this is a pig latin string'));
